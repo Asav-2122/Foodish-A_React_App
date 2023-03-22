@@ -1,0 +1,26 @@
+{
+  "name": "namste-react-2",
+  "version": "1.0.0",
+  "description": "This is React Web-Series",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asav-2122/Namste-React-Web-Series.git"
+  },
+  "keywords": [
+    "react",
+    "javascript"
+  ],
+  "author": "Aasav Pandya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Asav-2122/Namste-React-Web-Series/issues"
+  },
+  "homepage": "https://github.com/Asav-2122/Namste-React-Web-Series#readme",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
