@@ -7,8 +7,21 @@ const heading1 = React.createElement(
   "Hello World From React."
 );
 
+// now create Functonal create
+
+const Heading =()=>{
+  return (
+    <div>
+      <h1 id="heading">Hello world From Functional Component.</h1>
+      {heading1}
+    </div>
+  )
+}
+
+
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(heading1);
+root.render(<Heading/>);
 
 /* how things works in javascript for that :
 
