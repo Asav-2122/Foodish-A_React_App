@@ -1,0 +1,386 @@
+*{
+  margin: 0%;
+  padding: 0%;
+  box-sizing: border-box;
+}
+.main-container {
+  width: 100%;
+  height: 100vh;
+
+  /* display: flex;
+  justify-content: center; */
+  /* align-items: center; */
+}
+
+/* .outer-div-card{
+    border:1px solid black;
+    
+    
+   
+} */
+/* .inner-div-card {
+  margin-top: 20px;
+  width: 250px;
+  height: 320px;
+  
+  padding: 10px;
+ 
+}
+.inner-div-card > img {
+  width: 100%;
+  height: 50%;
+  border-radius: 5px;
+}
+.inner-div-card:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.inner-div{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+} */
+
+
+.header{
+  height: 15%;
+  width: 100%;
+  background-color: white;
+}
+.nav-bar{
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: space-between ;
+   align-items: center;
+}
+.nav-list-container{
+  width:10%;
+  display: flex;
+  justify-content: space-around;
+  /* border: 1px solid red; */
+}
+.cart-btn-container{
+ display: flex;
+ 
+}
+
+.body-container{
+   width: 100%;
+   height: 75%;
+  
+}
+
+.carousel-container{
+  /* display: flex; */
+  height: 50%;
+  width: 100%;
+  border: 1px solid black;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+/* .coursels{
+  width: 100%;
+  
+  border: 1px solid black;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+} */
+.coursel-card{
+  width: 20%;
+  height: 89%;
+  display: flex;
+}
+/* :hover .coursel-card{
+  cursor: pointer;
+  transform: scaleY(.5);
+} */
+.coursel-card>img{
+  width: 100%;
+}
+:hover.coursel-card>img{
+  cursor: pointer;
+  transform: scaleX(.5);
+}
+
+
+
+
+.serach-container{
+  margin-top: 10px;
+ 
+  width: 100%;
+  height: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+
+.search-bar{
+   width: 40%;
+   padding: 11px 4px;
+   background-color: black;
+   color: white;
+   outline: none;
+   /* border-radius: 10px; */
+   font-size: 15px;
+   font-weight: 700;
+   border-top-right-radius: none;
+   border-bottom-right-radius: none;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+}
+.search-btn{
+   padding: 13px 4px;
+   background-color: black;
+   color: white;
+   cursor: pointer;
+   /* border-radius: 10px; */
+   font-size: 15px;
+   border-top-left-radius: none;
+   border-bottom-left-radius: none;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
+
+
+.restaurants-list-container{
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   place-items: center;
+   margin-top: 20px;
+  
+}
+.no-restaurant-found-container{
+  position: relative;
+  left: 370px;
+}
+.total-restaurants{
+  grid-column: 1/-1;
+ /* position: relative; */
+ font-weight: 500;
+ /* right: 500px; */
+}
+.resturant-list{
+  margin-top: 45px;
+  /* grid-template-columns:  repeat(3,1fr); */
+}
+
+.card {
+  width: 250px;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.card:hover {
+  /* border: 1px solid black; */
+  cursor: pointer;
+  transform: scale(1.1);
+    border: 1 solid #d3d5df;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.card > img {
+  width: 100%;
+  border-radius: 5px;
+}
+.card > .card_name {
+  font-size: 17px;
+  font-weight: 500;
+}
+.card_details {
+  margin-top: 1rem;
+}
+.card_name {
+  font-size: 17px;
+  font-weight: 500;
+}
+.card_desc {
+  color: #686b78;
+  font-size: 13px;
+  margin-top: 4px;
+}
+.card_info {
+  display: flex;
+  font-size: 11px;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 2rem;
+  color: #535665;
+}
+.card_tag {
+  color: #686b78;
+  font-size: 13px;
+}
+.card_ratting {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  color: #fff;
+  width: 40px;
+  height: 20px;
+  padding: 0px 5px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.card_offer {
+  border-top: 1px solid #e9e9eb;
+  padding-top: 1rem;
+  margin-top: 1rem;
+  color: #8a584b;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 10px;
+}
+
+
+.shimmer-card {
+  width: 250px;
+  height: 300px;
+  margin: 10px;
+  padding: 20px;
+  box-shadow: 0 0 6px #ddd;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; */
+}
+  #image_shine {
+    width: 100%;
+    height: 50%;
+  }
+
+  #lines_shine {
+    height: 20px;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .shine {
+    background-image: linear-gradient(
+      to right,
+      #f6f7f8 0%,
+      #edeef1 20%,
+      #f6f7f8 40%,
+      #f6f7f8 100%
+    );
+    animation: left-to-right 2s linear infinite;
+  }
+  @keyframes left-to-right {
+    0% {
+      background-position: -450px 0;
+    }
+    100% {
+      background-position: 450px 0;
+    }
+  }
+
+@media (max-width: 1440px) {
+  .serach-container {
+    margin-top: 30px;
+    margin-bottom:0px;
+  }
+  .total-restaurants{
+   position: relative;
+   font-weight: 500;
+   right: 525px;
+   font-size: 19px;
+  }
+  .no-restaurant-found-container{
+    position: relative;
+    left: 370px;
+  }
+}
+
+@media (max-width:1024px){
+  .no-restaurant-found-container{
+    position: relative;
+    left: 190px;
+  }
+  .total-restaurants{
+    position: relative;
+    font-weight: 500;
+    right: 365px;
+    /* font-size: 19px; */
+   }
+}
+
+@media (max-width: 768px) {
+  .restaurants-list-container {
+    grid-template-columns: repeat(2,1fr);
+  }
+  .no-restaurant-found-container{
+    position: relative;
+    left: 100px;
+  }
+  .nav-list-container{
+    gap: 15px;
+    margin-right: 10px;
+  }
+  .carousel-container{
+    height: 60%;
+  }
+  .coursel-card{
+    width: 27%;
+  }
+  .total-restaurants{
+    /* grid-column: 1/-1; */
+    position: relative;
+    font-weight: 500;
+    right: 250px;
+   }
+}
+
+@media (max-width: 576px) {
+  .nav-bar{
+      width: 95%;
+  }
+  .restaurants-list-container {
+    grid-template-columns: repeat(1,1fr);
+  }
+  .no-restaurant-found-container{
+    position: relative;
+    left: 0px;
+    border: 1px solid black;
+  }
+  .no-restaurant-found-container>img{
+    /* position: relative;
+    left: 10px; */
+    width: 280px;
+  }
+
+  .search-bar{
+    width: 60%;
+  }
+  .search-btn{
+    padding: 13px 4px;
+  }
+  .carousel-container{
+    height: 50%;
+    width: 100%;
+  }
+  .coursel-card{
+    width: 30%;
+  }
+  .total-restaurants{
+    /* grid-column: 1/-1; */
+    position: relative;
+    font-weight: 500;
+    right: 10px;
+   }
+
+  
+}

@@ -1,5 +1,7 @@
 import React from "react";
 import  ReactDOM  from "react-dom/client";
+import App from "./src/App";
+import "./App.css";
 
 const heading1 = React.createElement(
   "h1",
@@ -9,19 +11,19 @@ const heading1 = React.createElement(
 
 // now create Functonal create
 
-const Heading =()=>{
-  return (
-    <div>
-      <h1 id="heading">Hello world From Functional Component.</h1>
-      {heading1}
-    </div>
-  )
-}
+// const Heading =()=>{
+//   return (
+//     <div>
+//       <h1 id="heading">Hello world From Functional Component.</h1>
+//       {heading1}
+//     </div>
+//   )
+// }
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Heading/>);
+root.render(<App/>);
 
 /* how things works in javascript for that :
 
