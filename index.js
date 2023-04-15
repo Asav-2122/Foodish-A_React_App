@@ -1,7 +1,7 @@
-import React from "react";
-import  ReactDOM  from "react-dom/client";
-import App from "./src/App";
-import "./App.css";
+// import React from "react";
+// import  ReactDOM  from "react-dom/client";
+// import App from "./src/App";
+
 
 const heading1 = React.createElement(
   "h1",
@@ -22,8 +22,8 @@ const heading1 = React.createElement(
 
 
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App/>);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(<App/>);
 
 /* how things works in javascript for that :
 

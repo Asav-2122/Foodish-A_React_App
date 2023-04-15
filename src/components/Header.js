@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="header">
       <nav className="nav-bar">
         <div className="logo-container">
-          <h1>Foodish</h1>
+          <Link to="/" className="link"><h1>Foodish</h1></Link>
         </div>
         <div className="nav-list-container">
-          <div>Home</div>
+          <div><Link to="/" className="link">Home</Link></div>
           <div className="cart-btn-container">
          {/* <div>
             <svg
@@ -26,7 +27,7 @@ const Header = () => {
               ></path>
             </svg>
             </div> */}
-           <span>Cart</span>
+           <span><Link to="/cart" className="link">Cart</Link></span>
           </div>
         </div>
       </nav>

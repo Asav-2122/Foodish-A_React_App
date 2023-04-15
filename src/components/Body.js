@@ -3,6 +3,7 @@ import Coursels from "./Coursels";
 import RestaurantCard from "./RestaurantCard";
 import RestaurantListShimmerUI from "./RestaurantListShimmerUI";
 import nodataimage from "../assets/images/nodata.png";
+import { Link } from "react-router-dom";
 // import { RESTAURANTS_API } from "../../Constanst";
 // import { RESTAURANTS_API } from "../../constanst";
 
@@ -100,7 +101,7 @@ const Body = () => {
             </div>
             {restaurants.map((restaurant) => (
               <div className="restaurants-list" key={restaurant.data.id}>
-                <RestaurantCard restaurantsData={restaurant.data} />
+               <Link to={"/restaurant/"+restaurant.data.id} className="link"><RestaurantCard restaurantsData={restaurant.data} /></Link>
               </div>
             ))}
           </>
