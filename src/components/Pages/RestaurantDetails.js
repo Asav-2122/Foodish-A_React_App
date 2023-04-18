@@ -105,7 +105,7 @@ const RestaurantDetails = () => {
                     {ele?.card?.card.itemCards?.length} Items
                   </div>
                   {ele?.card?.card?.itemCards?.map((filteredMenu) => {
-                     console.log(filteredMenu)
+                    
                   return (
                     <MenuItemCard
                       items={filteredMenu.card.info}

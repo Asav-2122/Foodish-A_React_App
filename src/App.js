@@ -6,13 +6,17 @@ import Body from "./components/Body";
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
 import RestaurantDetails from "./components/Pages/RestaurantDetails";
 import Cart from "./components/Pages/Cart";
+import { Provider } from "react-redux";
+import store from "./store/store";
 const App = () => {
   return (
+    <Provider store={store}>
     <div className="main-container">
       <Header />
       <Outlet/>
       {/* <Body /> */}
     </div>
+    </Provider>
   );
 };
 

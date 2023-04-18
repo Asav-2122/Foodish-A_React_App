@@ -15,7 +15,6 @@ const useGetRestaurantDetails = (id) => {
       .then((res) => res.json())
       .then((res) => {
         setRestaurantsDetails(res?.data?.cards);
-        console.log(res.data.cards)
         setCategory(
           res?.data?.cards[res?.data?.cards?.length-1]?.groupedCard?.cardGroupMap?.REGULAR?.cards
         );

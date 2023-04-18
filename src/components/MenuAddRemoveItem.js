@@ -1,17 +1,34 @@
-import React from 'react';
-import {BsPlus} from 'react-icons/bs'
-import {FiMinus} from 'react-icons/fi'
+import React from "react";
+import { BsPlus } from "react-icons/bs";
+import { FiMinus } from "react-icons/fi";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { addItems, removeItems } from "../slices/cartSlice";
 
-const MenuAddRemoveItem = ({items}) => {
+const MenuAddRemoveItem = ({ items }) => {
+  const dispatch = useDispatch();
+  const specificItemsCount = useSelector((store) => store.cart.cartItems);
+  const handleAddItem = (items) => {
+    dispatch(addItems(items));
+  };
+  const handleRemoveItem = (items) => {
+    dispatch(removeItems(items));
+  };
   return (
     <div className="menu_cart_section">
-        {/* <i className="fa-solid fa-minus" onClick={() => removeItems(items)}></i> */}
-         <span><FiMinus/></span>
-        <span>0</span>
-         <span><BsPlus/></span>
-        {/* <i className="fa-solid fa-plus" onClick={() => addItems(items)}></i> */}
-      </div>
-  )
-}
+      <span onClick={() => handleRemoveItem(items)}>
+        <FiMinus />
+      </span>
+      <span>
+        {specificItemsCount[items?.name]?.["count"] > 0
+          ? specificItemsCount[items.name]?.["count"]
+          : 0}
+      </span>
+      <span onClick={() => handleAddItem(items)}>
+        <BsPlus />
+      </span>
+    </div>
+  );
+};
 
 export default MenuAddRemoveItem;
