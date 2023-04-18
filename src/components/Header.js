@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import { BsFillCartFill } from "react-icons/bs";
 const Header = () => {
   return (
     <div className="header">
@@ -27,7 +27,7 @@ const Header = () => {
               ></path>
             </svg>
             </div> */}
-           <span><Link to="/cart" className="link">Cart</Link></span>
+           <span><Link to="/cart" className="link"><span>0</span><BsFillCartFill style={{marginTop:"0px"}}/></Link></span>
           </div>
         </div>
       </nav>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const useGetRestaurantDetails = (id) => {
   const [RestaurantDetails, setRestaurantsDetails] = useState([]);
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
     getRestaurantDetail();
@@ -13,11 +14,17 @@ const useGetRestaurantDetails = (id) => {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRestaurantsDetails(res.data.cards);
+        setRestaurantsDetails(res?.data?.cards);
+        console.log(res.data.cards)
+        setCategory(
+          res?.data?.cards[res?.data?.cards?.length-1]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+        );
       })
       .catch((error) => console.log(error));
   };
-  return RestaurantDetails;
+  // if (RestaurantDetails?.length > 0&&category.length>0) {
+    return [RestaurantDetails, category];
+  // }
 };
 
 export default useGetRestaurantDetails;
