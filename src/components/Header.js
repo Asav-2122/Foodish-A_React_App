@@ -19,12 +19,12 @@ const Header = () => {
             </Link>
           </div>
           <div className="cart-btn-container">
-            <span>
+            {/* <span> */}
               <Link to="/cart" className="link">
-                <span>{Object.keys(cartItems).length}</span>
-                <BsFillCartFill style={{ marginTop: "0px" }} />
+                {Object.keys(cartItems).length}
+                <BsFillCartFill />
               </Link>
-            </span>
+            {/* </span> */}
           </div>
         </div>
       </nav>

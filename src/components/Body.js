@@ -57,7 +57,7 @@ const Body = () => {
   return (
     <div className="body-container">
       <div className="carousel-container">
-        {carousel.length === 0 ? (
+        {carousel?.length === 0 ? (
           <Coursels />
         ) : (
           carousel.slice(0, 3).map((ele) => {
@@ -88,7 +88,7 @@ const Body = () => {
         </span>
       </div>
       <div className="restaurants-list-container">
-        {restaurants.length === 0 && isRestaurantFound ? (
+        {restaurants?.length === 0 && isRestaurantFound ? (
           <RestaurantListShimmerUI />
         ) : isRestaurantFound === false ? (
           <div className="no-restaurant-found-container">

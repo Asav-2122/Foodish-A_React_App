@@ -90,8 +90,9 @@ const RestaurantDetails = () => {
           )}
         </div>
         <div className="category-items">
-          {category.map((ele, index) => {
-            if (index > 0) {
+          {category?.map((ele, index) => {
+            if (index > 0 && ele?.card?.card?.title) {
+              console.log(ele)
               return (
                 <div
                   className="menu-section"
@@ -102,10 +103,9 @@ const RestaurantDetails = () => {
                     {ele?.card?.card?.title}
                   </div>
                   <div className="total-items">
-                    {ele?.card?.card.itemCards?.length} Items
+                    {ele?.card?.card.itemCards?.length>0?ele?.card?.card.itemCards?.length:0} Items
                   </div>
-                  {ele?.card?.card?.itemCards?.map((filteredMenu) => {
-                    
+                  {ele?.card?.card?.itemCards?.length>0 ? ele?.card?.card?.itemCards?.map((filteredMenu) => {
                   return (
                     <MenuItemCard
                       items={filteredMenu.card.info}
@@ -113,7 +113,7 @@ const RestaurantDetails = () => {
                       key={filteredMenu.card.info.id}
                     />
                   );
-                })}
+                }):<div className="no-items-found"><h2>Sorry!! Currently No Items Available In This Category.</h2></div>}
                 </div>
               );
             }

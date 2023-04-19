@@ -34,7 +34,6 @@ const Cart = () => {
         </div>
         <div className="cart-items-details">
           {Object.values(cartItems).map((ele) => {
-            console.log(ele);
             return (
               <div key={ele.id} className="cart-items-info">
                 <span>{ele.name}</span>

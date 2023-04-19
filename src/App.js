@@ -8,13 +8,14 @@ import RestaurantDetails from "./components/Pages/RestaurantDetails";
 import Cart from "./components/Pages/Cart";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import Footer from "./components/Footer";
 const App = () => {
   return (
     <Provider store={store}>
     <div className="main-container">
       <Header />
       <Outlet/>
-      {/* <Body /> */}
+       <Footer/>
     </div>
     </Provider>
   );
