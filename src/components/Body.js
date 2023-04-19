@@ -20,12 +20,12 @@ const Body = () => {
 
   const getRestaurantsData = () => {
     fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     )
       .then((res) => res.json())
       .then((res) => {
-        setRestaurants(res?.data?.cards[2]?.data?.data?.cards),
-          setCarousel(res?.data?.cards[0]?.data?.data?.cards);
+        setRestaurants(res?.data?.cards[2]?.data?.data?.cards);
+        setCarousel(res?.data?.cards[0]?.data?.data?.cards);
         setFilterRestaurant(res?.data?.cards[2]?.data?.data?.cards);
       })
       .catch((error) => console.log(error));

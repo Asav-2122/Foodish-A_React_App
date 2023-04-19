@@ -10,7 +10,7 @@ const useGetRestaurantDetails = (id) => {
 
   const getRestaurantDetail = () => {
     fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.4594965&lng=77.0266383&submitAction=ENTER&restaurantId=${id}`
+      `https://corsproxy.io/?https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.4594965&lng=77.0266383&submitAction=ENTER&restaurantId=${id}`
     )
       .then((res) => res.json())
       .then((res) => {

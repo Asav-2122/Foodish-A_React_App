@@ -632,6 +632,18 @@
   }
 }
 
+.empty-cart-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 80vh;
+}
+.empty-cart-container >img{
+  height: 60%;
+}
+
 @media (max-width: 1440px) {
   .nav-bar {
     font-size: 15px;
@@ -821,11 +833,12 @@
     padding: 13px 4px;
   }
   .carousel-container {
-    height: 50%;
+    height: 40%;
     width: 100%;
   }
   .coursel-card {
     width: 30%;
+    height: 60%;
   }
   .total-restaurants {
     /* grid-column: 1/-1; */

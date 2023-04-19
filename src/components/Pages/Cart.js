@@ -14,7 +14,8 @@ const Cart = () => {
     dispatch(removeItems(item));
   };
   return (
-    <div className="cart-container">
+    Object.keys(cartItems).length>0? (
+      <div className="cart-container">
       <div className="delivery-container">
         <div className="checkout-info">
           <span>Work</span>
@@ -107,6 +108,13 @@ const Cart = () => {
         </div>
       </div>
     </div>
+    )   : (
+      <div className="empty-cart-container">
+          <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" alt="empty-cart" className="h-96"/>
+          <h3 className="font-bold text-xl">You have nothing in your cart.</h3>
+      </div>
+    )
+    
   );
 };
 
