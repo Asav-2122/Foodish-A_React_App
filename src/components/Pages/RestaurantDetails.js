@@ -92,7 +92,7 @@ const RestaurantDetails = () => {
         <div className="category-items">
           {category?.map((ele, index) => {
             if (index > 0 && ele?.card?.card?.title) {
-              console.log(ele)
+             
               return (
                 <div
                   className="menu-section"

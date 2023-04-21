@@ -9,6 +9,7 @@ import Cart from "./components/Pages/Cart";
 import { Provider } from "react-redux";
 import store from "./store/store";
 import Footer from "./components/Footer";
+import Error404 from "./components/Pages/Error404";
 const App = () => {
   return (
     <Provider store={store}>
@@ -26,6 +27,7 @@ const appRouter = createBrowserRouter([
   {
     path:"/",
     element:<App/>,
+    errorElement:<Error404/>,
     children:[
       {
         path:"/",

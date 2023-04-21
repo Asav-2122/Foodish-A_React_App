@@ -97,9 +97,9 @@ const Body = () => {
         ) : (
           <>
             <div className="total-restaurants">
-              <h3> {restaurants.length} Restaurants</h3>
+              <h3> {restaurants?.length} Restaurants</h3>
             </div>
-            {restaurants.map((restaurant) => (
+            {restaurants?.map((restaurant) => (
               <div className="restaurants-list" key={restaurant.data.id}>
                <Link to={"/restaurant/"+restaurant.data.id} className="link"><RestaurantCard restaurantsData={restaurant.data} /></Link>
               </div>
