@@ -26,8 +26,8 @@ const RestaurantDetails = () => {
    element.scrollIntoView({ behavior: 'smooth' });
  };
   if (
-    (resturantDetails?.length === 0 || resturantDetails === undefined) &&
-    (category?.length === 0 || category === undefined)
+    (!resturantDetails || resturantDetails.length === 0  ) &&
+    (!category || category.length === 0  )
   ) {
     return null;
   }

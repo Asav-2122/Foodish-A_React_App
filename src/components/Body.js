@@ -24,9 +24,11 @@ const Body = () => {
     )
       .then((res) => res.json())
       .then((res) => {
-        setRestaurants(res?.data?.cards[2]?.data?.data?.cards);
-        setCarousel(res?.data?.cards[0]?.data?.data?.cards);
-        setFilterRestaurant(res?.data?.cards[2]?.data?.data?.cards);
+        // console.log(res?.data?.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+        setRestaurants(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setCarousel(res?.data?.cards[0]?.card?.card?.imageGridCards?.info)
+        // setCarousel(res?.data?.cards[0]?.data?.data?.cards);
+         setFilterRestaurant(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       })
       .catch((error) => console.log(error));
   };
@@ -41,7 +43,7 @@ const Body = () => {
       }
     } else {
       const filteredRes = restaurants.filter((ele) => {
-        return ele.data.name
+        return ele.info.name
           .toLowerCase()
           .includes(searchRestaurantQuery.toLowerCase());
       });
@@ -61,7 +63,7 @@ const Body = () => {
           <Coursels />
         ) : (
           carousel.slice(0, 3).map((ele) => {
-            return <Coursels key={ele.data.bannerId} {...ele.data} />;
+            return <Coursels key={ele.id} {...ele} />;
           })
         )}
       </div>
@@ -100,8 +102,8 @@ const Body = () => {
               <h3> {restaurants?.length} Restaurants</h3>
             </div>
             {restaurants?.map((restaurant) => (
-              <div className="restaurants-list" key={restaurant.data.id}>
-               <Link to={"/restaurant/"+restaurant.data.id} className="link"><RestaurantCard restaurantsData={restaurant.data} /></Link>
+              <div className="restaurants-list" key={restaurant.info.id}>
+               <Link to={"/restaurant/"+restaurant.info.id} className="link"><RestaurantCard restaurantsData={restaurant.info} /></Link>
               </div>
             ))}
           </>

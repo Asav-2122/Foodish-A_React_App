@@ -7,9 +7,9 @@ const RestaurantCard = ({ restaurantsData }) => {
     cuisines,
     cloudinaryImageId,
     avgRating,
-    deliveryTime,
-    costForTwoString,
-    aggregatedDiscountInfo,
+    costForTwo,
+    aggregatedDiscountInfoV3,
+    sla,
     id,
   } = restaurantsData;
   return (
@@ -39,15 +39,15 @@ const RestaurantCard = ({ restaurantsData }) => {
           </span>
           <span>{avgRating}</span>
         </div>
-        <div className="card_time">{deliveryTime} MINS</div>
-        <div className="card_cost">{costForTwoString}</div>
+        <div className="card_time">{sla?.deliveryTime} MINS</div>
+        <div className="card_cost">{costForTwo}</div>
       </div>
       <div className="card_offer ">
-        {aggregatedDiscountInfo?.shortDescriptionList[0]?.meta ? (
+        {aggregatedDiscountInfoV3?.header ? (
           <>
             <i className="fa-solid fa-tag"></i>
             <span className="ml-2">
-              {aggregatedDiscountInfo?.shortDescriptionList[0]?.meta}
+              {aggregatedDiscountInfoV3?.header}
             </span>
           </>
         ) : null}
