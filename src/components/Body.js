@@ -17,18 +17,25 @@ const Body = () => {
   useEffect(() => {
     getRestaurantsData();
   }, []);
-
+   const setStateVarible=(JsonData)=>{
+           JsonData?.data?.cards?.map((item)=>{
+               if (item?.card?.card?.id==="restaurant_grid_listing") {
+                setRestaurants(item?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+                setFilterRestaurant(item?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+               }
+           })
+   }
   const getRestaurantsData = () => {
     fetch(
       "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
     )
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res?.data?.cards[5].card.card.gridElements.infoWithStyle.restaurants)
-        setRestaurants(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        // console.log(res?.data?.cards)
+        // setRestaurants(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setCarousel(res?.data?.cards[0]?.card?.card?.imageGridCards?.info)
-        // setCarousel(res?.data?.cards[0]?.data?.data?.cards);
-         setFilterRestaurant(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setStateVarible(res)
+        //  setFilterRestaurant(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       })
       .catch((error) => console.log(error));
   };
