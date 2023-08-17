@@ -4,7 +4,7 @@ import React from "react";
 const Coursels = ({ imageId,accessibility }) => {
   return (
     <div className="coursel-card">
-      <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+imageId} alt={accessibility?.altText}/>
+     {imageId && <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+imageId} alt={accessibility?.altText}/>}
     </div>
   );
 };

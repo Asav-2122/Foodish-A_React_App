@@ -19,6 +19,7 @@ const Body = () => {
   }, []);
    const setStateVarible=(JsonData)=>{
            JsonData?.data?.cards?.map((item)=>{
+            //  console.log(item)
                if (item?.card?.card?.id==="restaurant_grid_listing") {
                 setRestaurants(item?.card?.card?.gridElements?.infoWithStyle?.restaurants);
                 setFilterRestaurant(item?.card?.card?.gridElements?.infoWithStyle?.restaurants);
@@ -37,7 +38,7 @@ const Body = () => {
         setStateVarible(res)
         //  setFilterRestaurant(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error));  
   };
 
   const filterSearchRestaurants = () => {
