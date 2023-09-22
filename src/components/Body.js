@@ -63,6 +63,11 @@ const Body = () => {
       }
     }
   };
+  const handleDeleveryTimeFilter=()=>{
+      const restaurant = [...restaurants].sort((a,b)=>a.info.sla.deliveryTime-b.info.sla.deliveryTime)
+      console.log(restaurant)
+      setRestaurants(restaurant)
+  }
 
   return (
     <div className="body-container">
@@ -96,6 +101,9 @@ const Body = () => {
         <span className="search-btn" onClick={filterSearchRestaurants}>
           Search
         </span>
+      </div>
+      <div>
+        <button onClick={handleDeleveryTimeFilter}>DeliveryTime-Filter</button>
       </div>
       <div className="restaurants-list-container">
         {restaurants?.length === 0 && isRestaurantFound ? (

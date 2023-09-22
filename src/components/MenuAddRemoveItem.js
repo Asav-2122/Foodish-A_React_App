@@ -11,12 +11,14 @@ const MenuAddRemoveItem = ({ items }) => {
   const handleAddItem = (items) => {
     dispatch(addItems(items));
   };
-  const handleRemoveItem = (items) => {
-    dispatch(removeItems(items));
+  const handleRemoveItem = (items,itemCount) => {
+    if (itemCount>0) {
+      dispatch(removeItems(items));
+      }
   };
   return (
     <div className="menu_cart_section">
-      <span onClick={() => handleRemoveItem(items)}>
+      <span onClick={() => handleRemoveItem(items,specificItemsCount[items?.name]?.["count"])}>
         <FiMinus />
       </span>
       <span>
