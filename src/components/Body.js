@@ -17,28 +17,33 @@ const Body = () => {
   useEffect(() => {
     getRestaurantsData();
   }, []);
-   const setStateVarible=(JsonData)=>{
-           JsonData?.data?.cards?.map((item)=>{
-            //  console.log(item)
-               if (item?.card?.card?.id==="restaurant_grid_listing") {
-                setRestaurants(item?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-                setFilterRestaurant(item?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-               }
-           })
-   }
+  const setStateVarible = (JsonData) => {
+    JsonData?.data?.cards?.map((item) => {
+      //  console.log(item)
+      if (item?.card?.card?.id === "restaurant_grid_listing") {
+        setRestaurants(
+          item?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        );
+        setFilterRestaurant(
+          item?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        );
+      }
+    });
+  };
   const getRestaurantsData = () => {
     fetch(
-      "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      // "https://www.swiggy.com/mapi/homepage/getCards?lat=23.011157&lng=72.5630675"
     )
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res?.data?.cards)
+        console.log(res?.data);
         // setRestaurants(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setCarousel(res?.data?.cards[0]?.card?.card?.imageGridCards?.info)
-        setStateVarible(res)
+        setCarousel(res?.data?.cards[0]?.card?.card?.imageGridCards?.info);
+        setStateVarible(res);
         //  setFilterRestaurant(res?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
       })
-      .catch((error) => console.log(error));  
+      .catch((error) => console.log(error));
   };
 
   const filterSearchRestaurants = () => {
@@ -63,11 +68,13 @@ const Body = () => {
       }
     }
   };
-  const handleDeleveryTimeFilter=()=>{
-      const restaurant = [...restaurants].sort((a,b)=>a.info.sla.deliveryTime-b.info.sla.deliveryTime)
-      console.log(restaurant)
-      setRestaurants(restaurant)
-  }
+  const handleDeleveryTimeFilter = () => {
+    const restaurant = [...restaurants].sort(
+      (a, b) => a.info.sla.deliveryTime - b.info.sla.deliveryTime
+    );
+    console.log(restaurant);
+    setRestaurants(restaurant);
+  };
 
   return (
     <div className="body-container">
@@ -102,9 +109,9 @@ const Body = () => {
           Search
         </span>
       </div>
-      <div>
+      {/* <div>
         <button onClick={handleDeleveryTimeFilter}>DeliveryTime-Filter</button>
-      </div>
+      </div> */}
       <div className="restaurants-list-container">
         {restaurants?.length === 0 && isRestaurantFound ? (
           <RestaurantListShimmerUI />
@@ -119,7 +126,9 @@ const Body = () => {
             </div>
             {restaurants?.map((restaurant) => (
               <div className="restaurants-list" key={restaurant.info.id}>
-               <Link to={"/restaurant/"+restaurant.info.id} className="link"><RestaurantCard restaurantsData={restaurant.info} /></Link>
+                <Link to={"/restaurant/" + restaurant.info.id} className="link">
+                  <RestaurantCard restaurantsData={restaurant.info} />
+                </Link>
               </div>
             ))}
           </>

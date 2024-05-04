@@ -12,10 +12,17 @@ const RestaurantCard = ({ restaurantsData }) => {
     sla,
     id,
   } = restaurantsData;
+  console.log(cloudinaryImageId);
   return (
     <div className="card">
       {cloudinaryImageId ? (
-        <img loading="lazy" src={IMG_CDN_URL + cloudinaryImageId} />
+        <img
+          loading="lazy"
+          src={
+            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
+            cloudinaryImageId
+          }
+        />
       ) : (
         <img loading="lazy" src={Default_Img} />
       )}
@@ -46,9 +53,7 @@ const RestaurantCard = ({ restaurantsData }) => {
         {aggregatedDiscountInfoV3?.header ? (
           <>
             <i className="fa-solid fa-tag"></i>
-            <span className="ml-2">
-              {aggregatedDiscountInfoV3?.header}
-            </span>
+            <span className="ml-2">{aggregatedDiscountInfoV3?.header}</span>
           </>
         ) : null}
       </div>

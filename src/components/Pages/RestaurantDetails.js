@@ -8,7 +8,6 @@ import MenuItemCard from "../MenuItemCard";
 const RestaurantDetails = () => {
   const { id } = useParams();
   const [resturantDetails, category] = useGetRestaurantDetails(id);
-
   //   useEffect(() => {
   //    if (resturantDetails!==undefined&&resturantDetails?.length>0) {
   //       const menu_category_item = resturantDetails[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.map((ele)=>{
@@ -21,13 +20,13 @@ const RestaurantDetails = () => {
   //     }
   //   }, [])
   const scrollToSection = (e, val) => {
-   e.preventDefault();
-   const element = document.getElementById(val);
-   element.scrollIntoView({ behavior: 'smooth' });
- };
+    e.preventDefault();
+    const element = document.getElementById(val);
+    element.scrollIntoView({ behavior: "smooth" });
+  };
   if (
-    (!resturantDetails || resturantDetails.length === 0  ) &&
-    (!category || category.length === 0  )
+    (!resturantDetails || resturantDetails.length === 0) &&
+    (!category || category.length === 0)
   ) {
     return null;
   }
@@ -40,24 +39,24 @@ const RestaurantDetails = () => {
               alt="restaurant-image"
               src={
                 IMG_CDN_URL +
-                resturantDetails[0]?.card?.card?.info?.cloudinaryImageId
+                resturantDetails[2]?.card?.card?.info?.cloudinaryImageId
               }
             />
           </div>
           <div className="resturant-name-container">
-            <h2>{resturantDetails[0]?.card?.card?.info?.name}</h2>
-            <p>{resturantDetails[0]?.card?.card?.info?.cuisines.join(" , ")}</p>
-            <p>{resturantDetails[0]?.card?.card?.info?.city}</p>
+            <h2>{resturantDetails[2]?.card?.card?.info?.name}</h2>
+            <p>{resturantDetails[2]?.card?.card?.info?.cuisines.join(" , ")}</p>
+            <p>{resturantDetails[2]?.card?.card?.info?.city}</p>
             <div className="restaurant-rating-container">
               <div>
-                <p>★ {resturantDetails[0]?.card?.card?.info?.avgRating}</p>
+                <p>★ {resturantDetails[2]?.card?.card?.info?.avgRating}</p>
                 {/* <span>{resturantDetails[0]?.card?.card?.info?.totalRatingsString}</span> */}
               </div>
               {/* <div>
                   <p>{resturantDetails[0]?.card?.card?.info?.sla.deliveryTime}</p>
                </div> */}
               <div>
-                {resturantDetails[0]?.card?.card?.info?.costForTwoMessage}
+                {resturantDetails[2]?.card?.card?.info?.costForTwoMessage}
               </div>
             </div>
           </div>
@@ -74,15 +73,22 @@ const RestaurantDetails = () => {
       </div>
       <div className="restaurant-menu-container">
         <div className="menu-category-nav">
-          {category?.length === 0||category===undefined ? (
+          {category?.length === 0 || category === undefined ? (
             <h1>Loading...</h1>
           ) : (
             category.map((ele, index) => {
               if (index > 0) {
                 return (
                   ele?.card?.card?.title !== undefined && (
-                    <span className="category-title" onClick={(e) => scrollToSection(e, ele?.card?.card?.title)}
-                    key={index}>{ele?.card?.card?.title}</span>
+                    <span
+                      className="category-title"
+                      onClick={(e) =>
+                        scrollToSection(e, ele?.card?.card?.title)
+                      }
+                      key={index}
+                    >
+                      {ele?.card?.card?.title}
+                    </span>
                   )
                 );
               }
@@ -92,7 +98,6 @@ const RestaurantDetails = () => {
         <div className="category-items">
           {category?.map((ele, index) => {
             if (index > 0 && ele?.card?.card?.title) {
-             
               return (
                 <div
                   className="menu-section"
@@ -103,17 +108,28 @@ const RestaurantDetails = () => {
                     {ele?.card?.card?.title}
                   </div>
                   <div className="total-items">
-                    {ele?.card?.card.itemCards?.length>0?ele?.card?.card.itemCards?.length:0} Items
+                    {ele?.card?.card.itemCards?.length > 0
+                      ? ele?.card?.card.itemCards?.length
+                      : 0}{" "}
+                    Items
                   </div>
-                  {ele?.card?.card?.itemCards?.length>0 ? ele?.card?.card?.itemCards?.map((filteredMenu) => {
-                  return (
-                    <MenuItemCard
-                      items={filteredMenu.card.info}
-                      restImg={resturantDetails.imageId}
-                      key={filteredMenu.card.info.id}
-                    />
-                  );
-                }):<div className="no-items-found"><h2>Sorry!! Currently No Items Available In This Category.</h2></div>}
+                  {ele?.card?.card?.itemCards?.length > 0 ? (
+                    ele?.card?.card?.itemCards?.map((filteredMenu) => {
+                      return (
+                        <MenuItemCard
+                          items={filteredMenu.card.info}
+                          restImg={resturantDetails.imageId}
+                          key={filteredMenu.card.info.id}
+                        />
+                      );
+                    })
+                  ) : (
+                    <div className="no-items-found">
+                      <h2>
+                        Sorry!! Currently No Items Available In This Category.
+                      </h2>
+                    </div>
+                  )}
                 </div>
               );
             }

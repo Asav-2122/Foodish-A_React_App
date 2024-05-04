@@ -4,6 +4,7 @@ import { FiPlus } from "react-icons/fi";
 import { FiMinus } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { addItems, removeItems } from "../../slices/cartSlice";
+import { IMG_CDN_URL } from "../../../Constanst";
 const Cart = () => {
   const cartItems = useSelector((store) => store.cart.cartItems);
   const dispatch = useDispatch();
@@ -13,9 +14,8 @@ const Cart = () => {
   const handleRemoveItem = (item) => {
     dispatch(removeItems(item));
   };
-  return (
-    Object.keys(cartItems).length>0? (
-      <div className="cart-container">
+  return Object.keys(cartItems).length > 0 ? (
+    <div className="cart-container">
       <div className="delivery-container">
         <div className="checkout-info">
           <span>Work</span>
@@ -108,13 +108,16 @@ const Cart = () => {
         </div>
       </div>
     </div>
-    )   : (
-      <div className="empty-cart-container">
-          <img src="https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0" alt="empty-cart" className="h-96"/>
-          <h3 className="font-bold text-xl">You have nothing in your cart.</h3>
-      </div>
-    )
-    
+  ) : (
+    <div className="empty-cart-container">
+      <img
+        src={IMG_CDN_URL + "2xempty_cart_yfxml0"}
+        alt="empty-cart"
+        className="h-96"
+      />
+
+      <h3 className="font-bold text-xl">You have nothing in your cart.</h3>
+    </div>
   );
 };
 
